@@ -15,30 +15,35 @@ console.log('Test - should say "Hello World!"', hello());
 // 2. Function to return an personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
 function helloName( name ) {
-  return;
+  return 'Hello ' + name;
 }
 // Remember to call the function to test
+console.log('Personalized hello function:', helloName('Connor'));
 
 
 // 3. Function to add two numbers together & return the result
-function addNumbers( firstNumber ) {
+function addNumbers( firstNumber, secondNumber) {
+  return (firstNumber + secondNumber);
+
   // return firstNumber + secondNumber;
+
 }
+console.log('Adding numbers function:', addNumbers(7,5));
 
 
 // 4. Function to multiply three numbers & return the result
-function multiplyThree( ){
-
+function multiplyThree(firstNumber, secondNumber, thirdNumber ){
+  return (firstNumber * secondNumber * thirdNumber);
 }
-
+console.log('Mult 3 nums:', multiplyThree(7,3,6));
 
 // 5. Function that will return true if a number is positive, 
 //    or greater than zero, and false otherwise
 function isPositive( number ) {
   if ( number > 0 ){
-    return;
+    return true;
   }
-    return;
+    return false;
 }
 // Call the function to test each outcome (true & false) 
 // Write a separate console.log statement for each outcome
@@ -49,41 +54,110 @@ console.log( 'isPositive - should say false', isPositive(-3) );
 
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
+let array= [1,2,3,4,5,6,7];
 function getLast( array ) {
-
+  return array.at(-1);
+  //shorthand expression used
+  // in place of array[array.length -1];
 }
+console.log('Getting last item in an array:', getLast(array));
 
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
-function find( value, array ){
-  
+function findValue( value, array ){
+  for (i=0; i<array.length; i++){
+    if (array[i] === value) {
+      return true;
+    }
+  }
+  return false;
 }
-
+let arrayOfMyThings = ['Coffee', 'Gloves', 'Mug', 'Croissant','Monday'];
+console.log('finding a value in an array:', findValue('Gloves', arrayOfMyThings ));
 // ----------------------
 // Stretch Goals
 // ----------------------
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+if (string.at(0) === letter){
+return true;
 }
+return false;
+}
+
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll( ) {
-  let sum = 0
+function sumAll( array ) {
+  let sum = 0;
+  for (i=0; i<array.length; i++){
+   sum = sum + array[i];
+  }
   // TODO: loop to add items
   return sum;
 }
+arrayTestNums = [9,55,88,123, -89, -999];
+console.log('Adding all numbers in an array:', sumAll(arrayTestNums));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
+function positiveNumbersOnly( array){
+  let newArray = [];
+  for (i=0; i<array.length; i++){
+    if (array[i]>0){
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+}
+console.log('Looking for positve numbers:', positiveNumbersOnly(arrayTestNums));
 
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+// Make a function that takes a non-negative integer and return an integer with digits in decending order
+function reverseOrder (number){
+  reversedNumber = parseInt(number.toString().split('').sort().reverse().join(''));
+  return reversedNumber;
+}
+console.log('Original number input:', 10490005898743612 ,' Digits in decending order:',reverseOrder(10490005898743612));
+
+
+// trying without built-ins with Matt 
+// Got stuck 
+
+// n = 354948349482873587;
+
+// function descendingOrder(n) {
+//   let numString = n.toString();
+//   console.log(numString);
+//   let decendingNum = [];
+//   for(let i = 0; i < numString.length; i++) {decendingNum.push(-1)};
+//   for(let i = 0; i < numString.length; i++) {
+//     thisIndex = 0;
+//     for(let k = 0; k < numString.length; k++) {
+//       if(numString[i] < numString[k]) {
+//         thisIndex++;
+//       }
+//     }
+// function findEmptyIndex (index) {
+//   if (decendingNum[index] != -1)
+// }
+//     decendingNum[thisIndex] = numString[i];
+//   }
+//   //return Number(decendingNum.join(''));
+  
+// }
+// console.log('Digits in decending order without built-ins:', decendingNum);
+// console.log(numString);
+
+
+
+
